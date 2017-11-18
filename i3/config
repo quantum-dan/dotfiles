@@ -50,6 +50,7 @@ bindsym Mod1+Shift+T sticky toggle
 # start a terminal
 bindsym Mod1+Return exec lxterminal
 bindsym Mod1+Shift+Return exec "lxterminal -e guile"
+bindsym Mod1+Ctrl+Return exec "lxterminal -e amm"
 
 # screenshot
 bindsym Mod1+Shift+H exec "gnome-screenshot"
