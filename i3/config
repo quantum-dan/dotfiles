@@ -31,6 +31,13 @@ set $down k
 set $left j
 set $right semicolon
 
+set $terminal lxterminal
+
+# Commands to run on startup
+exec nm-applet
+exec spideroak
+exec syncthing-gtk
+
 # Let Mod1 pass through -- for use with Emacs etc
 # Enter by pressing Alt_L and Alt_R at the same tiem
 mode "passthrough" {
@@ -48,7 +55,7 @@ bindsym Mod1+Shift+N "lxterminal -e sudo systemctl restart NetworkManager"
 bindsym Mod1+Shift+T sticky toggle
 
 # start a terminal
-bindsym Mod1+Return exec lxterminal
+bindsym Mod1+Return exec $terminal
 bindsym Mod1+Shift+Return exec "lxterminal -e guile"
 bindsym Mod1+Ctrl+Return exec "lxterminal -e amm"
 
@@ -71,7 +78,7 @@ bindsym Mod1+Shift+m exec "pamixer --unmute"
 bindsym Mod1+Shift+v exec pavucontrol
 
 # browser
-bindsym Mod1+Shift+W exec firefox
+bindsym Mod1+Shift+W exec nightly
 bindsym Mod1+Ctrl+W exec chromium
 
 # open file manager
