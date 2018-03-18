@@ -32,9 +32,14 @@ set $left j
 set $right semicolon
 
 set $terminal lxterminal
+set $firefox firefox # or nightly
 
-# Commands to run on startup
+# Commands to run on startup (run in order)
 exec nm-applet
+exec signal-desktop
+exec $firefox
+exec turtle
+exec $terminal
 exec spideroak
 exec syncthing-gtk
 
@@ -68,7 +73,7 @@ bindsym XF86AudioLowerVolume exec "pamixer -d 2"
 bindsym XF86AudioMute exec "pamixer -t"
 
 # lock
-bindsym Mod1+Shift+S exec i3lock
+bindsym Mod1+Shift+S exec "i3lock -c 000000"
 
 # mute/unmute
 bindsym Mod1+m exec "pamixer --mute"
@@ -78,7 +83,7 @@ bindsym Mod1+Shift+m exec "pamixer --unmute"
 bindsym Mod1+Shift+v exec pavucontrol
 
 # browser
-bindsym Mod1+Shift+W exec nightly
+bindsym Mod1+Shift+W exec $firefox
 bindsym Mod1+Ctrl+W exec chromium
 
 # open file manager
