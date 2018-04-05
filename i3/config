@@ -32,7 +32,9 @@ set $left j
 set $right semicolon
 
 set $terminal lxterminal
-set $firefox firefox # or nightly
+set $firefox nightly # firefox or nightly
+set $screenshot "maim -u ~/Pictures/screenshots/$(date +%F_%T).png"
+set $screenshot_select "maim -u -s ~/Pictures/screenshots/$(date +%F_%T).png"
 
 # Commands to run on startup (run in order)
 exec nm-applet
@@ -42,6 +44,9 @@ exec turtle
 exec $terminal
 exec spideroak
 exec syncthing-gtk
+exec nextcloud
+exec wire
+exec qtox
 
 # Let Mod1 pass through -- for use with Emacs etc
 # Enter by pressing Alt_L and Alt_R at the same tiem
@@ -65,7 +70,8 @@ bindsym Mod1+Shift+Return exec "lxterminal -e guile"
 bindsym Mod1+Ctrl+Return exec "lxterminal -e amm"
 
 # screenshot
-bindsym Mod1+Shift+H exec "gnome-screenshot"
+bindsym --release Mod1+Shift+H exec --no-startup-id $screenshot
+bindsym --release Mod1+Ctrl+H exec --no-startup-id $screenshot_select
 
 # volume
 bindsym XF86AudioRaiseVolume exec "pamixer -i 2"
@@ -74,6 +80,8 @@ bindsym XF86AudioMute exec "pamixer -t"
 
 # lock
 bindsym Mod1+Shift+S exec "i3lock -c 000000"
+# Make lock screen look like a Windows desktop
+bindsym Mod1+Ctrl+S exec "i3lock -p win -i ~/Pictures/win10.png"
 
 # mute/unmute
 bindsym Mod1+m exec "pamixer --mute"
