@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     ocaml
      (c-c++ :variables
             c-c++-enable-clang-support t)
      idris
